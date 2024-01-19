@@ -1,0 +1,76 @@
+<!-- index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <img src="Group 3.png" alt="logo" id="logo">
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <hr>
+    <hr style="width: max-content; color: black;">
+    <form method="post" action="/movies/<%= page %>/<%= pageSize %>">
+        <input type="text" name="movie" placeholder="movie" id="search" autocomplete="off" oninput="searchMovie()">
+
+        <button type="submit" name="submit">
+            <svg style="color: rgb(0, 0, 0);" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" fill="#000000"></path>
+            </svg>
+        </button>
+    </form>
+
+    <div id="searchedMovie">
+    </div>
+    <script>
+        async function searchMovie() {
+            const movieInput = document.getElementById('search').value;
+
+            if (movieInput.trim() === '') {
+                // If the input is empty, clear the movie details
+                document.getElementById('searchedMovie').innerHTML = '';
+                return;
+            }
+
+            try {
+                console.log(movieInput)
+                const apiKey = 'bba4fededdbeac099653cc18b878503d';
+                const params = new URLSearchParams({
+                    query: movieInput,
+                    api_key: apiKey
+                });
+
+                const response = await fetch(`http://api.themoviedb.org/3/search/movie?${params}`);
+                const data = await response.json();
+
+                movieDetails = data.results; // Assuming you want details of the first result
+                console.log(movieDetails)
+                // Update the movie details on the webpage
+                let movieHTML = '<ul id="moviebox">';
+for (let i = 0; i < 5; i++) {
+  const movie = movieDetails[i];
+  movieHTML += `
+    <li>
+      <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
+      <h2>${movie.title}</h2>
+    </li>
+    <hr>
+  `;
+}
+movieHTML += '</ul>';
+document.getElementById('searchedMovie').innerHTML = movieHTML;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+    <%- include('footer.ejs') %>
+</body>
+</html>

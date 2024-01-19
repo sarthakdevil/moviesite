@@ -1,0 +1,27 @@
+<!-- movieDetails.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movieDetails.original_title %> Details</title>
+    <link rel="stylesheet" href="/css/movieDetail.css">
+    <!-- Add any additional styling or scripts needed for movie details -->
+</head>
+<body>
+    <img src="<%= 'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path %>" alt="Movie Poster">
+
+    <!-- Display movie details as needed -->
+    <div class="detailcontainer">   
+        <h1><%= movieDetails.original_title %> Details</h1> 
+        <p><span id="bold">Release Date:</span> <%= movieDetails.release_date %></p>
+        <p><span id="bold">Overview:</span> <%= movieDetails.overview %></p>
+        <p><span id="bold">Rating:</span> <%= movieDetails.vote_average %></p>
+        <p><span id="bold">Tagline</span> <%= movieDetails.tagline %></p>
+    </div>
+
+    <!-- You can also provide a link to go back to the previous page -->
+    <a href="javascript:history.back()">Go Back</a>
+</body>
+</html>

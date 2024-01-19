@@ -1,0 +1,46 @@
+<!-- movies.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Results</title>
+    <!-- Update the CSS link to use an absolute path -->
+    <link rel="stylesheet" href="/css/movie.css">
+</head>
+<body>
+    <h1>Movie Search Results</h1>
+    <div class="moviebox">
+        <% if (movies.length > 0) { %>
+            <% movies.forEach(function(movie) { %>
+                <div>
+                    <a href="/movie/<%= movie.id %>">
+                    <img src="<%= 'https://image.tmdb.org/t/p/w500' + movie.poster_path %>" alt="<%= 'Movie Poster - ' + movie.original_title %>">
+                    <h2>Title: <%= movie.original_title %></h2>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+        <!-- Pagination -->
+        <div>
+            <% if (prevPage) { %>
+                <a href="<%= prevPage %>">Previous</a>
+            <% } else { %>
+                <span>Previous</span>
+            <% } %>
+        
+            Page <%= page %> of <%= totalPages %>
+        
+            <% if (nextPage) { %>
+                <a href="<%= nextPage %>">Next</a>
+            <% } else { %>
+                <span>Next</span>
+            <% } %>
+        </div>
+
+        <% } else { %>
+            <p>No movies found.</p>
+        <% } %>
+    </body>
+    </html>

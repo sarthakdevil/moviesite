@@ -1,0 +1,16 @@
+footer{
+    background: #252222;
+    color: white;
+    position:fixed;
+    top: 90vh;
+    width:100%;
+    height: 100%;
+    left:0px;
+    border-radius: 10px;
+
+}
+footer>h4{
+    font-family:"Lato", sans-serif;
+    font-size:20px;
+
+}
