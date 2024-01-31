@@ -16,12 +16,22 @@
         <% if (movies.length > 0) { %>
             <% movies.forEach(function(movie) { %>
                 <div>
-                    <a href="/movie/<%= movie.id %>">
-                    <img src="<%= 'https://image.tmdb.org/t/p/w500' + movie.poster_path %>" alt="<%= 'Movie Poster - ' + movie.original_title %>">
-                    <h2>Title: <%= movie.original_title %></h2>
-                    </a>
+                    <% if (movie.poster_path) { %>
+                        <a href="/movie/<%= movie.id %>">
+                            <img src="<%= 'https://image.tmdb.org/t/p/w500' + movie.poster_path %>" alt="<%= 'Movie Poster - ' + movie.original_title %>">
+                            <h2>Title: <%= movie.original_title %></h2>
+                        </a>
+                    <% } else { %>
+                        <a href="/movie/<%= movie.id %>">
+                            <img src="Empty movies.png" alt="<%= 'Movie Poster - ' + movie.original_title %>">
+                            <h2>Title: <%= movie.original_title %></h2>
+                        </a>
+                    <% } %>
                 </div>
-            <% }); %>
+            <% } ); %>
+        </div>
+        
+            <% }; %>
         </div>
         <!-- Pagination -->
         <div id="nav-pages">

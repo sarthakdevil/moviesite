@@ -1,0 +1,54 @@
+body{
+    background-image: linear-gradient(rgb(255, 221, 0),rgb(207, 137, 7));
+    overflow-x: hidden;
+}
+.moviebox {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+}
+
+.moviebox>div{
+    background: rgb(18, 18, 18);
+    color: white;
+    border-radius: 6px;
+    margin: 1%;
+    padding: 1% 2%;
+    box-shadow: 0 0 10px rgba(0,0,0);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 25vw;
+}
+.moviebox > div>img {
+    height: 44vh;
+    width: 24vw;
+}
+.moviebox>h2{
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+#nav-pages{
+    color: blanchedalmond;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+
+}
+#nav-pages>a>button{
+    cursor: pointer;
+    background-color: rgb(25, 24, 24);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 3vw;
+    height: 4vh;
+    color: blanchedalmond;
+}
+#nav-pages>a>button:hover{
+    transform: scale(150%);
+}

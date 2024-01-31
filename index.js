@@ -273,15 +273,15 @@ app.get('/top/:pageno', async (req, res) => {
         const responseData = await makeHttpRequest(options);
         const moviedata = JSON.parse(responseData);
 
-        const prevPage = page > 1 ? `/top/${page -1}` : null;
-        
-        const nextPage = page < totalPages ? `/top/${page + 1}` : null;
-        
+        const prevPage = page > 1 ? `/top/${page - 1}` : null;
+        const nextPage = page < moviedata.total_pages ? `/top/${page + 1}` : null;
         res.render('top', {
             page: moviedata.page,
             totalMovies: moviedata.total_results,
             totalPages: moviedata.total_pages,
             movies: moviedata.results,
+            prevPage: prevPage,
+            nextPage: nextPage
         });
     } catch (error) {
         console.error('Error:', error.message);
