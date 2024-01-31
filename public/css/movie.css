@@ -1,5 +1,6 @@
 body{
     background-image: linear-gradient(rgb(255, 221, 0),rgb(207, 137, 7));
+    overflow-x: hidden;
 }
 .moviebox {
     width: 100vw;
@@ -29,4 +30,25 @@ body{
     text-transform: uppercase;
     text-decoration: none;
     color: white;
+}
+#nav-pages{
+    color: blanchedalmond;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+
+}
+#nav-pages>a>button{
+    cursor: pointer;
+    background-color: rgb(25, 24, 24);
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 3vw;
+    height: 4vh;
+    color: blanchedalmond;
+}
+#nav-pages>a>button:hover{
+    transform: scale(150%);
 }

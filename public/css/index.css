@@ -2,11 +2,6 @@ body{
     overflow: hidden;
     background: #ffd0d0;
 }
-
-#logo{
-    height: 34px;
-    width: 256px;
-}
 form{
     position: absolute;
     display: flexbox;
@@ -33,53 +28,24 @@ form>button{
 
 }
 
-.hamburger-menu {
-    position: relative;
-    float: right;
-    display: block;
-    cursor: pointer;
-
-}
-
-.hamburger-menu div {
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-/* When the menu is open, rotate the middle line and hide the others */
-
-.hamburger-menu.active div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger-menu.active div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-menu.active div:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
 #moviebox{
     list-style: none;
     background-color: #333;
     width: 407px;
 }
-#moviebox>li>img{
+#moviebox>li>a>img{
     height: 40px;
     width: 30px;
 }
-#moviebox>li{
-    color: yellow;
+#moviebox>li>a{
+    color: bisque;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: xx-small;
+    text-decoration: none;
     padding: 8px;
 }
 #searchedMovie{

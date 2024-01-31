@@ -10,6 +10,7 @@
     <!-- Add any additional styling or scripts needed for movie details -->
 </head>
 <body>
+    <%- include('nav') %>
     <img src="<%= 'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path %>" alt="Movie Poster">
 
     <!-- Display movie details as needed -->
@@ -20,8 +21,11 @@
         <p><span id="bold">Rating:</span> <%= movieDetails.vote_average %></p>
         <p><span id="bold">Tagline</span> <%= movieDetails.tagline %></p>
     </div>
-
+    <form action="/get" method="post">
+    <button type="submit" class="comments">go to comments</button>
+</form>
     <!-- You can also provide a link to go back to the previous page -->
     <a href="javascript:history.back()">Go Back</a>
+    <%- include('footer') %>
 </body>
 </html>

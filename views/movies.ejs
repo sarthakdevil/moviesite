@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/css/movie.css">
 </head>
 <body>
+    <%- include('nav.ejs') %>
     <h1>Movie Search Results</h1>
     <div class="moviebox">
         <% if (movies.length > 0) { %>
@@ -23,9 +24,9 @@
             <% }); %>
         </div>
         <!-- Pagination -->
-        <div>
+        <div id="nav-pages">
             <% if (prevPage) { %>
-                <a href="<%= prevPage %>">Previous</a>
+                <a href="<%= prevPage %>"><button>Previous</button></a>
             <% } else { %>
                 <span>Previous</span>
             <% } %>
@@ -33,7 +34,7 @@
             Page <%= page %> of <%= totalPages %>
         
             <% if (nextPage) { %>
-                <a href="<%= nextPage %>">Next</a>
+                <a href="<%= nextPage %>"><button>Next</button></a>
             <% } else { %>
                 <span>Next</span>
             <% } %>

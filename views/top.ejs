@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/movie.css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('nav.ejs') %>
+
+    <h1>Movie Search Results</h1>
+    <div class="moviebox">
+        <% if (movies.length > 0) { %>
+            <% movies.forEach(function(movie) { %>
+                <div>
+                    <a href="/movie/<%= movie.id %>">
+                    <img src="<%= 'https://image.tmdb.org/t/p/w500' + movie.poster_path %>" alt="<%= 'Movie Poster - ' + movie.original_title %>">
+                    <h2>Title: <%= movie.original_title %></h2>
+                    </a>
+                </div>
+            <% }); %>
+
+            <% } else { %>
+                <p>No movies found.</p>
+            <% } %>
+        </div>
+    
+    <div id="nav-pages">        
+        <% if (prevPage) { %>
+            <a href="<%= prevPage %>"><button>Previous</button></a>
+        <% } else { %>
+            <span>Previous</span>
+        <% } %>
+    
+        Page <%= page %> of <%= totalPages %>
+    
+        <% if (nextPage) { %>
+            <a href="<%= nextPage %>"><button>Next</button></a>
+        <% } else { %>
+            <span>Next</span>
+        <% } %>
+    </div>
+
+
+
+
+    <%- include('footer') %>
+</body>
+</html>
