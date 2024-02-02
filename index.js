@@ -257,8 +257,8 @@ app.get('/movie/:movieId', async (req, res) => {
 app.get('/top/:pageno', async (req, res) => {
     // get the data from API and send it to ejs file
     // https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1
-    const apiKey = "bba4fededdbeac099653cc18b878503d";
-    const page = req.params.pageno || 1;
+    const apiKey = encodeURIComponent("bba4fededdbeac099653cc18b878503d");;
+    const page = encodeURIComponent(req.params.pageno || 1);
 
     const options = {
         hostname: 'api.themoviedb.org',
@@ -272,14 +272,14 @@ app.get('/top/:pageno', async (req, res) => {
     try {
         const responseData = await makeHttpRequest(options);
         const moviedata = JSON.parse(responseData);
-
-        const prevPage = page > 1 ? `/top/${page - 1}` : null;
-        const nextPage = page < moviedata.total_pages ? `/top/${page + 1}` : null;
+        console.log(moviedata)
+        const prevPage = page > 1 ? `/top/${ Number(page) - 1}` : null;
+        const nextPage = page < moviedata.total_pages ? `/top/${ Number(page) + 1}` : null;
         res.render('top', {
             page: moviedata.page,
             totalMovies: moviedata.total_results,
             totalPages: moviedata.total_pages,
-            movies: moviedata.results,
+            movies: moviedata.results || [],
             prevPage: prevPage,
             nextPage: nextPage
         });
