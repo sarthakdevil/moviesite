@@ -1,13 +1,13 @@
 footer{
-    background: #252222;
+    display: flex;
+    float: center;
     color: white;
-    position:fixed;
-    top: 90vh;
-    width:100%;
+    background-color: black;
+    width:100vw;
     height: 100%;
-    left:0px;
+    right: 1vw;
     border-radius: 10px;
-
+    justify-content: center;
 }
 footer>h4{
     font-family:"Lato", sans-serif;

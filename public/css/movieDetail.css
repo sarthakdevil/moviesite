@@ -3,7 +3,7 @@ body{
     height: 100vh;
     overflow-y: hidden;
 }
-img{
+#poster{
     position: relative;
     top: 10vh;
     left: 5px;
