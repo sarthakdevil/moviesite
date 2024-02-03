@@ -66,28 +66,6 @@ app.post('/login', passport.authenticate('local', {
     failureRedirect: '/login',
 }));
 
-app.get('/',async (req, res) => {
-    // Pass movieDetails to the view
-    if(req.isAuthenticated()){
-    res.render('index', {
-        page,
-        pageSize
-    });
-}else{
-    res.redirect("/login")
-}
-})
-// Updated Express.js 
-var movie;
-
-// Assume movies array is globally defined
-let movies = [];
-let pageSize = 20; // Set the default page size
-let page = 1; // Set the default page number
-var totalPages;
-var moviesearched;
-var genre;
-var paginatedMovies;
 const movieGenres = {
     Action: 28,
     Adventure: 12,
@@ -109,6 +87,30 @@ const movieGenres = {
     War: 10752,
     Western: 37
   };
+
+app.get('/',async (req, res) => {
+    // Pass movieDetails to the view
+    if(req.isAuthenticated()){
+    res.render('index', {
+        page,
+        pageSize,
+        movie
+    });
+}else{
+    res.redirect("/login")
+}
+})
+// Updated Express.js 
+var movie;
+
+// Assume movies array is globally defined
+let movies = [];
+let pageSize = 20; // Set the default page size
+let page = 1; // Set the default page number
+var totalPages;
+var moviesearched;
+var genre;
+var paginatedMovies;
   
 app.post('/movies',async (req,res)=>{
     try {
@@ -168,6 +170,7 @@ app.post('/movies',async (req,res)=>{
         movies: paginatedMovies,
         prevPage,
         nextPage,
+        
     });
     } catch (err) {
         return res.status(500).send(err);

@@ -58,3 +58,26 @@ form>button{
     width: 21.5vw;
     right: 1.9vw;
 }
+footer{
+    position: absolute;
+    top: 90vh;
+    left: 0vw;
+}
+
+#genre{
+    height: 5vh;
+    border-radius: 30px;
+    margin: 10px;
+    width: 5vw;
+    background-color: black;
+    color: #fff;
+}
+#genrediv{
+    position: relative;
+    top: -30vh;
+    left:  -32vw;
+    display: flex;
+    flex-wrap: wrap;
+    top: 0vh;
+    width: 100vw;
+}

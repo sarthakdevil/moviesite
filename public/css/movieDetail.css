@@ -34,3 +34,7 @@ body{
     font-size: large;
 
 }
+#footer{
+    position: absolute;
+    top: 90vh;
+}

@@ -1,0 +1,35 @@
+body{
+    background-color: bisque;
+}
+form{
+    position: relative;
+    display: flex;
+    top: 30vh;
+    left:25%;
+    flex-direction: column;
+    border: #000  solid 3px;
+    padding: 2vw;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    width: 50vw;
+  }
+  button{
+    width: 5vw;
+    height: 3vh;
+    background-color: #04162d;
+    color: #f1f1f1;
+    border-radius: 10px;
+  }
+button:hover{
+  transform: 150%;
+}
+input {
+    width: 20vw;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+  }

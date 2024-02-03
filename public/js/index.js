@@ -40,5 +40,20 @@ document.getElementById('searchedMovie').innerHTML = movieHTML;
         console.error('Error:', error);
     }
 }
+// index.js
 
-//genres
+// index.js
+
+function toggleGenre(selectedGenre) {
+    var hiddenInput = document.getElementById('selectedGenre_' + selectedGenre);
+    
+    // Toggle the value of the hidden input field
+    hiddenInput.value = (hiddenInput.value === selectedGenre) ? '' : selectedGenre;
+
+    // Toggle the color of the selected button
+    var button = document.querySelector('input[value="' + selectedGenre + '"]');
+    button.style.color = (hiddenInput.value === selectedGenre) ? 'red' : '';  // Change to your desired color
+}
+
+
+

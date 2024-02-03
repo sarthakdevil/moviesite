@@ -12,15 +12,18 @@
     <%- include('nav.ejs') %>
     <hr style="width: max-content; color: black;">
     <form method="post" action="/movies">
-        <label for="genre">Select a genre:</label>
-        <select id="genre" name="genre">
-          <% Object.keys(movieGenres).forEach(function(genre) { %>
-            <option value="<%= genre %>"><%= genre %></option>
-          <% }); %>
-        </select>
-    
-        <button type="button" onclick="addGenre()">Add Genre</button>
-    
+        
+<!-- index.ejs -->
+
+<!-- ... (previous code) ... -->
+
+<form method="post" action="/movies">
+    <div id="genrediv">
+    <% Object.keys(movieGenres).forEach(function(genre) { %>
+        <input id="genre" type="button" value="<%= genre %>" onclick="toggleGenre('<%= genre %>')">
+        <input type="hidden" name="selectedGenres[]" id="selectedGenre_<%= genre %>" value="">
+    <% }); %>
+    </div>
         <input type="text" name="movie" placeholder="movie" id="search" autocomplete="off" oninput="searchMovie()">
 
         <button type="submit" name="submit">
